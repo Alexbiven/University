@@ -23,3 +23,21 @@ INSERT INTO human (surname,name,status,course,faculty,assessment,average_ball)
             ('Денисов','Николай','Студент',1,'Физика и математика',7,4.5),
             ('Никольский','Вадим','Студент',3,'Информатика',8,8.5),
             ('Зеленкин','Антон','Студент',4,'Иностранные языки',8,7.9);
+
+
+CREATE TABLE Registration
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(30) NOT NULL,
+    password VARCHAR(35) NOT NULL,
+    status TEXT NOT NULL
+
+);
+
+CREATE TABLE Authorization
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(30) NOT NULL,
+    password VARCHAR(35) NOT NULL
+
+);

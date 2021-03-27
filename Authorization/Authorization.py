@@ -1,7 +1,16 @@
-import pymysql
+
 
 class Authorization:
-    def __init__(self,):
+        def __init__(self,login,password):
+            self.login = login
+            self.password = password
+
+
+
+
+
+
+
 
 
 

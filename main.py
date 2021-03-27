@@ -8,8 +8,9 @@ def my_Authorization():
     print('Логин: ' + my_Authorization.login, 'Пароль: ' + my_Authorization.password)
 
 def my_Registration():
-    my_Registration = Registration('qwertyке', 'sdf23154')
-    print('Логин: ' + my_Registration.login, 'Пароль: ' + my_Registration.password)
+    my_Registration = Registration('qwertyке', 'sdf23154','Студент')
+    print('Логин: ' + my_Registration.login, '\n' 'Пароль: ' + my_Registration.password,
+          '\n''Статус: ' + my_Registration.status)
 
 def Start():
     while True:

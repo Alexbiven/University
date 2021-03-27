@@ -1,5 +1,4 @@
 
-
 from Authorization.Authorization import Authorization
 from Registration.Registration import Registration
 
@@ -8,9 +7,8 @@ def my_Authorization():
     print('Логин: ' + my_Authorization.login, 'Пароль: ' + my_Authorization.password)
 
 def my_Registration():
-    my_Registration = Registration('qwertyке', 'sdf23154','Студент')
-    print('Логин: ' + my_Registration.login, '\n' 'Пароль: ' + my_Registration.password,
-          '\n''Статус: ' + my_Registration.status)
+    my_Registration = Registration()
+    my_Registration.addUser('sanya', 'wekfhwhf', 'Student')
 
 def Start():
     while True:
@@ -18,8 +16,10 @@ def Start():
                          'Выберите пункт: '))
         if type == 1:
             my_Authorization()
+            break
         elif type == 2:
             my_Registration()
-        elif type == 3:
-            Start()
+            break
+        else:
+            print('Error')
 Start()

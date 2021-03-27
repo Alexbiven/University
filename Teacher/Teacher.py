@@ -6,6 +6,8 @@ class Teacher(Human):
         self.middle_name = middle_name
 
 
+
+
 my_Teacher = Teacher('Иванова','Татьяна','Николаевна','Преподаватель')
 my_Teacher.create()
 print('Фамилия: ' + my_Teacher.surname,'\n' 'Имя: ' + my_Teacher.name,'\n' 'Отчество: ' + my_Teacher.middle_name,

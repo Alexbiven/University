@@ -40,5 +40,5 @@ class Registration:
 # my_Registration = Registration()
 # my_Registration.addUser(input('Введите имя: '),input('Введите фамилию: '),input('Введите логин: '),
 #                             input('Введите пароль: '), input('Введите статус: '))
-my_Registration = Registration()
-my_Registration.getUsers()
+# my_Registration = Registration()
+# my_Registration.getUsers()

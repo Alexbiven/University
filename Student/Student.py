@@ -1,16 +1,35 @@
-from Human import Human
+import pymysql
+from pymysql.cursors import DictCursor
 
-class Student(Human):
 
-    def __init__(self,name,surname,status, course,faculty,assessment,average_ball):
-        Human.__init__(self,name,surname,status)
-        self.course = course
-        self.faculty = faculty
-        self.assessment = assessment
-        self.average_ball = average_ball
+class Student:
 
-my_Student = Student('Олег','Петров','Студент','4','Психология','8','4.0')
-my_Student.create()
-print('Имя: ' + my_Student.name,'\n' 'Фамилия: ' + my_Student.surname,'\n' 'Статус: ' + my_Student.status,
-      '\n' 'Курс: ' + my_Student.course, '\n' 'Факультет: ' + my_Student.faculty,'\n' 'Оценка: ' + my_Student.assessment,
-      '\n' 'Средний бал: ' + my_Student.average_ball)
+    def __init__(self):
+        self.connection = self.connect()
+        self.cursors = self.connection.cursor()
+
+    def connect(self):
+        connection = pymysql.connect(
+            host='localhost',
+            user='biven',
+            password='11T32cS1',
+            db='university',
+            charset='utf8mb4',
+            cursorclass=DictCursor
+        )
+        return connection
+
+    def search_information(self):
+        sql = "SELECT * FROM human"
+        self.cursors.execute(sql)
+        data = self.cursors.fetchall()
+        for element in data:
+            if element['surname'] == 'Petrov':
+                print( 'Имя:',element['name'],'\n''Статус:',element['status'],'\n''Курс:',element['course'],'\n'
+                        'Факультет:',element['faculty'],'\n''Оценка:',element['assessment'],'\n'
+                        'Средний бал:',element['average_ball'])
+
+
+
+# my_Student = Student()
+# my_Student.search_information()

@@ -8,7 +8,7 @@ CREATE TABLE Human
 	surname VARCHAR(20)NOT NULL,
     name VARCHAR(15) NOT NULL,
     middle_name VARCHAR(20)NOT NULL,
-    status TEXT NOT NULL,
+    status VARCHAR(20) NOT NULL,
     course INT NOT NULL,
     faculty TEXT NOT NULL,
     assessment INT NOT NULL,
@@ -20,19 +20,3 @@ CREATE TABLE Human
 
 
 
-CREATE TABLE Registration
-(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    login VARCHAR(30) NOT NULL,
-    password VARCHAR(35) NOT NULL,
-    status TEXT NOT NULL
-
-);
-
-CREATE TABLE Authorization
-(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    login VARCHAR(30) NOT NULL,
-    password VARCHAR(35) NOT NULL
-
-);

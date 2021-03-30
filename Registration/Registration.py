@@ -20,20 +20,24 @@ class Registration:
 
 
 
-    def addUser(self, login, password,status):
-        sql = 'INSERT INTO Registration (id, login, password,status) VALUES (%s, %s, %s, %s)'
-        temp = ['NULL', login, password,status]
+    def addUser(self, name,surname,login, password,status):
+        sql = 'INSERT INTO human (id,name,surname, login, password,status) VALUES (%s, %s, %s, %s, %s, %s)'
+        temp = ['NULL', name,surname,login, password,status]
         self.cursors.execute(sql, temp)
         self.connection.commit()
 
     def getUsers(self):
-        sql = "SELECT * FROM registration"
+        sql = "SELECT * FROM human"
         self.cursors.execute(sql)
         data = self.cursors.fetchall()
         for element in data:
+            print(element['name'])
+            print(element['surname'])
             print(element['login'])
+
+
 
 # my_Registration = Registration()
 # my_Registration.addUser('sanya', 'wekfhwhf', 'Student')
-my_Registration = Registration()
-my_Registration.getUsers()
+# my_Registration = Registration()
+# my_Registration.getUsers()

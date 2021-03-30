@@ -8,7 +8,8 @@ def my_Authorization():
 
 def my_Registration():
     my_Registration = Registration()
-    my_Registration.addUser('sanya', 'wekfhwhf', 'Student')
+    my_Registration.addUser(input('Введите имя: '),input('Введите фамилию: '),input('Введите логин: '),
+                            input('Введите пароль: '), input('Введите статус: '))
 
 def Start():
     while True:

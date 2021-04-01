@@ -1,26 +1,30 @@
 
 from Authorization.Authorization import Authorization
 from Registration.Registration import Registration
-from Teacher.Teacher import Teacher
 from Student.Student import Student
 
 def my_Authorization():
-    my_Authorization = Authorization('qwerty', 'sdf234')
-    print('Логин: ' + my_Authorization.login, 'Пароль: ' + my_Authorization.password)
+    my_Authorization = Authorization()
+    login = input('Введите логин: ')
+    password = input('Введите пароль: ')
+    password = password.replace('a', '1').replace('c', '2')
+    data = my_Authorization.getUsers(login, password)
+    if data != ():
+        user = data[0]
+        if user['status'] == "Student":
+            my_Student = Student()
+            my_Student.menu_student()
+        elif user['status'] == 'Teacher':
+            print('menu prep')
+    else:
+        print('Incorrect login or password!')
+        Start()
+
 
 def my_Registration():
     my_Registration = Registration()
     my_Registration.addUser(input('Введите имя: '),input('Введите фамилию: '),input('Введите логин: '),
                             input('Введите пароль: '), input('Введите статус: '))
-
-def Edition_info():
-    my_Teacher = Teacher()
-    my_Teacher.edit_information(int(input('Введите номер курса: ')), input('Введите название факультета: '),
-                                int(input('Введите оценку: ')), float(input('Введите средний бал: ')))
-
-def Searching_info():
-    my_Student = Student()
-    my_Student.search_information()
 
 
 def Start():
@@ -36,24 +40,4 @@ def Start():
         else:
             print('Error')
 
-
-def Human_menu():
-    while True:
-        act = int(input('МЕНЮ ВЫБОРА:' '\n' '1. Преподаватель  ' '\n' '2. Студент '  '\n'
-                         'Выберите пункт: '))
-        if act == 1:
-            Edition_info()
-            break
-        elif act == 2:
-            Searching_info()
-            break
-        else:
-            print('Error')
-
-
-
-def main():
-    Start()
-    Human_menu()
-
-main()
+Start()

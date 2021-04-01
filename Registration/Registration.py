@@ -22,17 +22,15 @@ class Registration:
 
     def addUser(self, name,surname,login, password,status):
         sql = 'INSERT INTO human (id,name,surname, login, password,status) VALUES (%s, %s, %s, %s, %s, %s)'
-        temp = ['NULL', name,surname,login, password,status]
-        password.replace('a', 'e').replace('c', 'r')
+        password = password.replace('a', '1').replace('c', '2')
+        temp = ['NULL', name, surname, login, password, status]
         self.cursors.execute(sql, temp)
         self.connection.commit()
-
-    def getUsers(self):
-        sql = "SELECT * FROM human"
-        self.cursors.execute(sql)
-        data = self.cursors.fetchall()
-        for element in data:
-            print('Имя: ' + element['name'],'Фамилия: ' + element['surname'],'Пароль: ' + element['login'])
+        if status == 'Student':
+            sql = "INSERT INTO progress (id,name,surname,status) VALUES ( %s, %s ,%s ,%s  ) "
+            temp = ['NULL',name,surname,status]
+            self.cursors.execute(sql, temp)
+            self.connection.commit()
 
 
 

@@ -1,33 +1,29 @@
-import pymysql
-from pymysql.cursors import DictCursor
-
+from DataBase import DataBase
 
 class Teacher:
 
+    def menu_teacher(self):
+        while True:
+            type = int(input('МЕНЮ ПРЕПОДАВАТЕЛЯ: ' '\n' '1. Поиск личной информации, студента' '\n'
+                             '2. Поиск информации, по всем студентам' '\n'
+                             '3. Редактировать информацию о студентах' '\n' 
+                             'Выберите категорию(введите цифру): '))
+            if type == 1:
+                my_info = DataBase()
+                my_info.search_personal_info(input('Введите имя: '), input('Введите фамилию: '))
+                #break
+            elif type == 2:
+                my_info = DataBase()
+                my_info.search_general_info()
+                #break
+            elif type == 3:
+                my_info = DataBase()
+                my_info.edit_information(input('Введите фамилию: '), input('Введите имя: '),
+                                         int(input('Математика: ')), int(input('Физика: ')),
+                                         int(input('Информатика: ')),
+                                         int(input('Литература: ')), int(input('Философия: ')))
+                my_info.average_ball()
+                #break
+            else:
+                print('Выберите пункт')
 
-    def __init__(self):
-        self.connection = self.connect()
-        self.cursors = self.connection.cursor()
-
-    def connect(self):
-        connection = pymysql.connect(
-            host='localhost',
-            user='biven',
-            password='11T32cS1',
-            db='university',
-            charset='utf8mb4',
-            cursorclass=DictCursor
-        )
-        return connection
-
-    def edit_information(self,course,faculty,assessment, average_ball):
-        sql = "UPDATE human " \
-              "SET course = %s, faculty = %s, assessment = %s, average_ball = %s " \
-              "WHERE name = 'Igor' and surname = 'Petrov' "
-        temp = [ course,faculty,assessment, average_ball]
-        self.cursors.execute(sql, temp)
-        self.connection.commit()
-
-# my_Teacher = Teacher()
-# my_Teacher.edit_information(int(input('Введите номер курса: ')) ,input('Введите название факультета: '),
-#                             int(input('Введите оценку: ')), float(input('Введите средний бал: ')))

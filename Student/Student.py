@@ -5,15 +5,16 @@ class Student:
     def menu_student(self):
         while True:
             type  = int(input('МЕНЮ УЧАЩЕГОСЯ: ' '\n' '1. Поиск личной информации' '\n' 
-                              '2. Поиск информации, по всем студентам' '\n' 'Выберите категорию: '))
+                              '2. Поиск информации, по всем студентам' '\n'
+                              'Выберите категорию(введите цифру): '))
             if type == 1:
                 my_info = DataBase()
                 my_info.search_personal_info(input('Введите имя: '), input('Введите фамилию: '))
-                #break
+                break
             elif type == 2:
                 my_info = DataBase()
                 my_info.search_general_info()
-                #break
+                break
             else:
                 print('Выберите пункт')
 

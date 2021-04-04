@@ -46,8 +46,17 @@ class DataBase:
                   'Информатика: ',user['informatics'],'Литература: ',user['literature'],
                   'Философия: ',user['philosophy'],'Средний балл: ',user['average_ball'])
 
+    def edit_information(self,surname,name,maths,physics,informatics,literature,philosophy):
+        sql = "UPDATE progress" \
+              " SET maths = %s, physics = %s, informatics = %s, literature = %s, philosophy = %s" \
+              " WHERE surname = '%s' and name = '%s'"
+        temp = [surname,name,maths,physics,informatics,literature,philosophy]
+        self.cursors.execute(sql, temp)
+        self.connection.commit()
+
+    def average_ball(self):
+        sql = "UPDATE progress SET average_ball = (maths+physics+informatics+literature+philosophy)/5;"
+        self.cursors.execute(sql)
+        self.connection.commit()
 
 
-# my_info = DataBase()
-# # # my_info.search_personal_info(input('Введите имя: '),input('Введите фамилию: '))
-# my_info.search_general_info()

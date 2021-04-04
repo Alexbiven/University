@@ -29,3 +29,7 @@ CREATE TABLE progress
 
 );
 
+
+
+UPDATE progress
+SET average_ball = maths+physics+informatics+literature+philosophy/5;

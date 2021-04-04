@@ -1,7 +1,7 @@
-
 from Authorization.Authorization import Authorization
 from Registration.Registration import Registration
 from Student.Student import Student
+from Teacher.Teacher import Teacher
 
 def my_Authorization():
     my_Authorization = Authorization()
@@ -12,10 +12,13 @@ def my_Authorization():
     if data != ():
         user = data[0]
         if user['status'] == "Student":
+            print('Добро пожаловать в личный кабинет, ' + user['name'],user['surname'])
             my_Student = Student()
             my_Student.menu_student()
         elif user['status'] == 'Teacher':
-            print('menu prep')
+            print('Добро пожаловать в личный кабинет, ' + user['name'], user['surname'])
+            my_Teacher = Teacher()
+            my_Teacher.menu_teacher()
     else:
         print('Incorrect login or password!')
         Start()
@@ -24,7 +27,8 @@ def my_Authorization():
 def my_Registration():
     my_Registration = Registration()
     my_Registration.addUser(input('Введите имя: '),input('Введите фамилию: '),input('Введите логин: '),
-                            input('Введите пароль: '), input('Введите статус: '))
+                            input('Введите пароль: '),
+                            input('Введите статус. Student или Teacher: '))
 
 
 def Start():
@@ -38,6 +42,6 @@ def Start():
             my_Registration()
             break
         else:
-            print('Error')
+            print('Выберите пункт меню')
 
 Start()

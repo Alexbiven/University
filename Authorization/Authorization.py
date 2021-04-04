@@ -29,8 +29,7 @@ class Authorization:
             return data
 
 
-# my_Authorization = Authorization()
-# my_Authorization.getUsers(input('Введите логин: '),input('Введите пароль: '))
+
 
 
 

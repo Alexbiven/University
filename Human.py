@@ -1,9 +1,11 @@
-class Human:
+# def edit_information(self,course,faculty,assessment, average_ball):
+    #     sql = "UPDATE human " \
+    #           "SET course = %s, faculty = %s, assessment = %s, average_ball = %s " \
+    #           "WHERE name = 'Igor' and surname = 'Petrov' "
+    #     temp = [ course,faculty,assessment, average_ball]
+    #     self.cursors.execute(sql, temp)
+    #     self.connection.commit()
 
-    def __init__(self,name,surname,status):
-        self.name = name
-        self.surname = surname
-        self.status = status
-
-    def create(self):
-        print('Человек внесен в базу данных')
+# my_Teacher = Teacher()
+# my_Teacher.edit_information(int(input('Введите номер курса: ')) ,input('Введите название факультета: '),
+#                             int(input('Введите оценку: ')), float(input('Введите средний бал: ')))

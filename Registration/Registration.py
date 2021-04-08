@@ -20,10 +20,10 @@ class Registration:
 
 
 
-    def addUser(self, name,surname,login, password,status):
-        sql = 'INSERT INTO human (id,name,surname, login, password,status) VALUES (%s, %s, %s, %s, %s, %s)'
+    def addUser(self,login, password, name,surname,status):
+        sql = 'INSERT INTO human (id, login, password,name,surname) VALUES (%s, %s, %s, %s, %s)'
         password = password.replace('a', '1').replace('c', '2')
-        temp = ['NULL', name, surname, login, password, status]
+        temp = ['NULL', login, password,name, surname]
         self.cursors.execute(sql, temp)
         self.connection.commit()
         if status == 'Student':
@@ -32,6 +32,11 @@ class Registration:
             self.cursors.execute(sql, temp)
             self.connection.commit()
 
+    def check_login(self):
+        sql = "SELECT login FROM human "
+        self.cursors.execute(sql)
+        data = self.cursors.fetchall()
+        return data
 
 
 

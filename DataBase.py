@@ -32,7 +32,7 @@ class DataBase:
                       'Литература: ', user['literature'],'\n''Философия: ', user['philosophy'],'\n'
                       'Средний балл: ', user['average_ball'])
         else:
-            print('There is no such user')
+            print('There is no such User')
             my_info = DataBase()
             my_info.search_personal_info(input('Введите имя: '),input('Введите фамилию: '))
 
@@ -41,16 +41,16 @@ class DataBase:
         self.cursors.execute(sql)
         data = self.cursors.fetchall()
         for user in data:
-            print('Имя: ',user['name'],'Фамилия: ',user['surname'],'Курс: ',user['course'],
+            # print('Студент:',user['name'],user['surname'],
+            #       'Курс:',user['course'], 'Средний балл:',user['average_ball'])
+            print('Студент:',user['name'],user['surname'],'Курс: ',user['course'],
                   'Математика: ',user['maths'],'Физика: ',user['physics'],
                   'Информатика: ',user['informatics'],'Литература: ',user['literature'],
                   'Философия: ',user['philosophy'],'Средний балл: ',user['average_ball'])
 
-    def edit_information(self,surname,name,maths,physics,informatics,literature,philosophy):
-        sql = "UPDATE progress" \
-              " SET maths = %s, physics = %s, informatics = %s, literature = %s, philosophy = %s" \
-              " WHERE surname = '%s' and name = '%s'"
-        temp = [surname,name,maths,physics,informatics,literature,philosophy]
+    def edit_information(self,surname,name,discipline,mark):
+        sql = f"UPDATE progress SET {discipline} = (%s) WHERE surname = (%s) and name = (%s) "
+        temp = [mark,surname,name]
         self.cursors.execute(sql, temp)
         self.connection.commit()
 
@@ -60,3 +60,19 @@ class DataBase:
         self.connection.commit()
 
 
+    def update_course(self,surname,name,course):
+        sql = f"UPDATE progress SET course = {course} WHERE surname = (%s) and name = (%s)"
+        temp = [surname, name]
+        self.cursors.execute(sql,temp)
+        self.connection.commit()
+
+
+    def update_status(self,surname,name,status):
+        sql = f"UPDATE human,progress SET status = {status} WHERE surname = (%s) and name = (%s)"
+        temp = [surname, name]
+        self.cursors.execute(sql,temp)
+        self.connection.commit()
+
+# my_info = DataBase()
+# my_info.update_status(input('Введите фамилию: '), input('Введите имя: '),
+#                                               input('Введите новый статус: '))

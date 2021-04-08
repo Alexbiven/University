@@ -2,15 +2,16 @@ CREATE DATABASE University;
 
 Use University
 
-CREATE TABLE Human
+CREATE TABLE human
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	surname VARCHAR(20)NOT NULL,
     name VARCHAR(15) NOT NULL,
-    status VARCHAR(20) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Student',
     login VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL
 );
+
 
 
 CREATE TABLE progress
@@ -18,7 +19,7 @@ CREATE TABLE progress
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	surname VARCHAR(20)NOT NULL,
     name VARCHAR(15) NOT NULL,
-    status VARCHAR(20) NOT NULL,
+    status VARCHAR(20) NOT NULL  ,
     course INT NOT NULL,
     maths INT NOT NULL,
     physics INT NOT NULL,
@@ -31,5 +32,6 @@ CREATE TABLE progress
 
 
 
-UPDATE progress
-SET average_ball = maths+physics+informatics+literature+philosophy/5;
+INSERT INTO human (id, login, password,name,surname) VALUES (1,'biven36', 'alexpolinka','Alexandr', 'Pisarev')
+
+

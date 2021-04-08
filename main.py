@@ -11,7 +11,7 @@ def my_Authorization():
     data = my_Authorization.getUsers(login, password)
     if data != ():
         user = data[0]
-        if user['status'] == "Student":
+        if user['status'] == 'Student':
             print('Добро пожаловать в личный кабинет, ' + user['name'],user['surname'])
             my_Student = Student()
             my_Student.menu_student()
@@ -26,9 +26,20 @@ def my_Authorization():
 
 def my_Registration():
     my_Registration = Registration()
-    my_Registration.addUser(input('Введите имя: '),input('Введите фамилию: '),input('Введите логин: '),
-                            input('Введите пароль: '),
-                            input('Введите статус. Student или Teacher: '))
+    print('Проверка логина, на доступность')
+    login = input('Введите логин: ')
+    data = my_Registration.check_login()
+    if data != ():
+        user = data[0]
+        if user['login'] == login:
+            print('Этот логин уже используется')
+            Start()
+        else:
+            print('Логин доступен. Продолжите регистрацию')
+            my_Registration.addUser(input('Повторите логин: '),
+                                input('Введите пароль: '),input('Введите имя: '),input('Введите фамилию: '),'Student')
+            Start()
+
 
 
 def Start():

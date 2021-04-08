@@ -10,11 +10,11 @@ class Student:
             if type == 1:
                 my_info = DataBase()
                 my_info.search_personal_info(input('Введите имя: '), input('Введите фамилию: '))
-                break
+                #break
             elif type == 2:
                 my_info = DataBase()
                 my_info.search_general_info()
-                break
+                #break
             else:
                 print('Выберите пункт')
 

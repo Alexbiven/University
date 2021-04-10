@@ -7,7 +7,8 @@ CREATE TABLE human
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	surname VARCHAR(20)NOT NULL,
     name VARCHAR(15) NOT NULL,
-    status VARCHAR(20) DEFAULT 'Student',
+    date_of_birth DATE NOT NULL,
+    status VARCHAR(20) NOT NULL,
     login VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL
 );
@@ -19,6 +20,7 @@ CREATE TABLE progress
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	surname VARCHAR(20)NOT NULL,
     name VARCHAR(15) NOT NULL,
+    date_of_birth DATE NOT NULL,
     status VARCHAR(20) NOT NULL  ,
     course INT NOT NULL,
     maths INT NOT NULL,

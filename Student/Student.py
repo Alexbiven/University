@@ -13,7 +13,7 @@ class Student:
                 #break
             elif type == 2:
                 my_info = DataBase()
-                my_info.search_general_info()
+                my_info.search_general_infoS()
                 #break
             else:
                 print('Выберите пункт')

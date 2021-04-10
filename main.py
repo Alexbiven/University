@@ -37,7 +37,7 @@ def my_Registration():
         else:
             print('Логин доступен. Продолжите регистрацию')
             my_Registration.addUser(input('Повторите логин: '),
-                                input('Введите пароль: '),input('Введите имя: '),input('Введите фамилию: '),'Student')
+                                    input('Введите пароль: '),input('Введите имя: '),input('Введите фамилию: '),'Student')
             Start()
 
 

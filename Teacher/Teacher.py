@@ -1,5 +1,5 @@
 from DataBase import DataBase
-from Authorization.Authorization import Authorization
+
 
 
 class Teacher:
@@ -16,7 +16,7 @@ class Teacher:
                 #break
             elif type == 2:
                 my_info = DataBase()
-                my_info.search_general_info()
+                my_info.search_general_infoT()
                 #break
             elif type == 3:
                 while True:
@@ -29,9 +29,13 @@ class Teacher:
                                                  int(input('Введите номер курса: ')))
 
                     elif act == 2:
+                        list = ['maths', 'physics', 'informatics', 'literature', 'philosophy']
+                        print('СПИСОК ДИСЦИПЛИН' '\n' '1:maths 2:physics 3:informatics 4:literature 5:philosophy')
+                        point = int(input('Выберите дисциплину,которую хотите изменить(введите цифру): '))
+                        discipline = (list[point - 1])
                         my_info = DataBase()
                         my_info.edit_information(input('Введите фамилию: '), input('Введите имя: '),
-                                                 input('Дисциплина: '), int(input('Оценка: ')))
+                                                 discipline, int(input('Оценка: ')))
                         my_info.average_ball()
                         my_Teacher = Teacher()
                         my_Teacher.menu_teacher()
@@ -42,6 +46,9 @@ class Teacher:
                                               input('Введите новый статус(Student или Teacher): '))
 
                     elif act == 4:
+                        my_Teacher = Teacher()
+                        my_Teacher.menu_teacher()
+                    else:
                         my_Teacher = Teacher()
                         my_Teacher.menu_teacher()
             elif type == 4:

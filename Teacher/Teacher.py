@@ -45,15 +45,7 @@ class Teacher:
                                               input('Введите новый статус(Student или Teacher): '))
 
                     elif act == 4:
-                        my_Teacher = Teacher()
-                        my_Teacher.menu_teacher()
-
-                    elif type == 0:
                         break
-
-                    else:
-                        my_Teacher = Teacher()
-                        my_Teacher.menu_teacher()
 
             elif type == 0:
                 break

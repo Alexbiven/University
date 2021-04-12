@@ -21,11 +21,10 @@ class Authorization:
 
 
 
-        def getUsers(self,login,password):
+        def getUsers(self, login, password):
             sql = f"SELECT * FROM human WHERE login = '{login}' and password = '{password}'"
             self.cursors.execute(sql)
             data = self.cursors.fetchall()
-            #print(data)
             return data
 
 

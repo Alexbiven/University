@@ -3,21 +3,20 @@ from DataBase import DataBase
 
 
 class Teacher:
-
     def menu_teacher(self):
         while True:
             type = int(input('МЕНЮ ПРЕПОДАВАТЕЛЯ: ' '\n' '1. Поиск личной информации, студента' '\n'
                              '2. Поиск информации, по всем студентам' '\n'
-                             '3. Редактировать информацию о студентах' '\n' '4. Выход' '\n'
+                             '3. Редактировать информацию о студентах' '\n' '0. Выход' '\n'
                              'Выберите категорию(введите цифру): '))
             if type == 1:
                 my_info = DataBase()
-                my_info.search_personal_info(input('Введите имя: '), input('Введите фамилию: '))
-                #break
+                my_info.search_personal_infoT(input('Введите имя: '), input('Введите фамилию: '))
+
             elif type == 2:
                 my_info = DataBase()
                 my_info.search_general_infoT()
-                #break
+
             elif type == 3:
                 while True:
                     act = int(input('Какую информацию хотите изменить?''\n' '1. Изменить курс' '\n' '2. Изменить успеваемость''\n'
@@ -48,13 +47,15 @@ class Teacher:
                     elif act == 4:
                         my_Teacher = Teacher()
                         my_Teacher.menu_teacher()
+
+                    elif type == 0:
+                        break
+
                     else:
                         my_Teacher = Teacher()
                         my_Teacher.menu_teacher()
-            elif type == 4:
-                print('Войдите в личный кабинет')
 
+            elif type == 0:
+                break
 
-            else:
-                print('Выберите пункт')
 

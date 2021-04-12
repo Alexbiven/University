@@ -13,7 +13,7 @@ def my_Authorization():
         user = data[0]
         if user['status'] == 'Student':
             print('Добро пожаловать в личный кабинет, ' + user['name'],user['surname'])
-            my_Student = Student()
+            my_Student = Student(login)
             my_Student.menu_student()
         elif user['status'] == 'Teacher':
             print('Добро пожаловать в личный кабинет, ' + user['name'], user['surname'])
@@ -39,7 +39,8 @@ def my_Registration():
             my_Registration.addUser(input('Повторите логин: '),
                                     input('Введите пароль: '),input('Введите имя: '),
                                     input('Введите фамилию: '),'Student')
-            Start()
+            my_Student = Student(login)
+            my_Student.menu_student()
 
 
 
@@ -49,10 +50,8 @@ def Start():
                          'Выберите пункт: '))
         if type == 1:
             my_Authorization()
-            break
         elif type == 2:
             my_Registration()
-            break
         else:
             print('Выберите пункт меню')
 

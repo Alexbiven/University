@@ -20,15 +20,15 @@ class Registration:
 
 
 
-    def addUser(self,login, password, name,surname,status):
+    def addUser(self, login, password, name, surname, status):
         sql = 'INSERT INTO human (id, login, password,name,surname,status) VALUES (%s, %s, %s, %s, %s,%s)'
         password = password.replace('a', '1').replace('c', '2')
         temp = ['NULL', login, password,name, surname,status]
         self.cursors.execute(sql, temp)
         self.connection.commit()
         if status == 'Student':
-            sql = "INSERT INTO progress (id,name,surname,status) VALUES ( %s, %s ,%s ,%s  ) "
-            temp = ['NULL',name,surname,status]
+            sql = "INSERT INTO progress (id,name,surname,status,login) VALUES ( %s, %s ,%s ,%s , %s ) "
+            temp = ['NULL',name,surname,status,login]
             self.cursors.execute(sql, temp)
             self.connection.commit()
 

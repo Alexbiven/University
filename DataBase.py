@@ -32,7 +32,7 @@ class DataBase:
         if data != ():
             user = data[0]
             if user['name'] == name and user['surname'] == surname:
-                print('Студент:', user['name'], user['surname'], 'Курс: ', user['course'],
+                print(user['status'],':', user['name'], user['surname'], 'Курс: ', user['course'],
                       'Математика: ', user['maths'], 'Физика: ', user['physics'],
                       'Информатика: ', user['informatics'], 'Литература: ', user['literature'],
                       'Философия: ', user['philosophy'], 'Средний балл: ', user['average_ball'])
@@ -46,7 +46,7 @@ class DataBase:
         self.cursors.execute(sql)
         data = self.cursors.fetchall()
         for user in data:
-            print('Студент:',user['name'],user['surname'],
+            print(user['status'],':',user['name'],user['surname'],
                   'Курс:',user['course'], 'Средний балл:',user['average_ball'])
 
     def search_general_infoT(self):
@@ -54,7 +54,7 @@ class DataBase:
         self.cursors.execute(sql)
         data = self.cursors.fetchall()
         for user in data:
-            print('Студент:',user['name'],user['surname'],'Курс: ',user['course'],
+            print(user['status'],':',user['name'],user['surname'],'Курс: ',user['course'],
                   'Математика: ',user['maths'],'Физика: ',user['physics'],
                   'Информатика: ',user['informatics'],'Литература: ',user['literature'],
                   'Философия: ',user['philosophy'],'Средний балл: ',user['average_ball'])

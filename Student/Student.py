@@ -13,10 +13,10 @@ class Student:
             if type == 1:
                 my_info = DataBase()
                 data = my_info.search_personal_infoS(self.login)
-                print(data['status'],':', data['name'], data['surname'], 'Курс: ', data['course'],
-                      'Математика: ', data['maths'], 'Физика: ', data['physics'],
-                      'Информатика: ', data['informatics'], 'Литература: ', data['literature'],
-                      'Философия: ', data['philosophy'], 'Средний балл: ', data['average_ball'])
+                print(data['status'],':', data['name'], data['surname'], '\n' 'Курс: ', data['course'],'\n'
+                      'Математика: ', data['maths'],'\n' 'Физика: ', data['physics'],'\n'
+                      'Информатика: ', data['informatics'], '\n''Литература: ', data['literature'],'\n'
+                      'Философия: ', data['philosophy'],'\n' 'Средний балл: ', data['average_ball'])
 
             elif type == 2:
                 my_info = DataBase()

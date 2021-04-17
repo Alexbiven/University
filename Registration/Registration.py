@@ -19,7 +19,6 @@ class Registration:
         return connection
 
 
-
     def addUser(self, login, password, name, surname, status):
         sql = 'INSERT INTO human (id, login, password,name,surname,status) VALUES (%s, %s, %s, %s, %s,%s)'
         password = password.replace('a', '1').replace('c', '2')
@@ -36,7 +35,10 @@ class Registration:
         sql = "SELECT login FROM human "
         self.cursors.execute(sql)
         data = self.cursors.fetchall()
-        return data
+        list = []
+        for element in data:
+            list.append(element['login'])
+        return list
 
 
 

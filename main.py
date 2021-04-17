@@ -28,19 +28,17 @@ def my_Registration():
     my_Registration = Registration()
     print('Проверка логина, на доступность')
     login = input('Введите логин: ')
-    data = my_Registration.check_login()
-    if data != ():
-        user = data[0]
-        if user['login'] == login:
-            print('Этот логин уже используется')
-            Start()
-        else:
-            print('Логин доступен. Продолжите регистрацию')
-            my_Registration.addUser(input('Повторите логин: '),
-                                    input('Введите пароль: '),input('Введите имя: '),
-                                    input('Введите фамилию: '),'Student')
-            my_Student = Student(login)
-            my_Student.menu_student()
+    check = my_Registration.check_login()
+    if login in check:
+        print('Этот логин уже используется')
+        Start()
+    else:
+        print('Логин доступен. Продолжите регистрацию')
+        my_Registration.addUser(input('Повторите логин: '),
+                                input('Введите пароль: '), input('Введите имя: '),
+                                input('Введите фамилию: '), 'Student')
+        my_Student = Student(login)
+        my_Student.menu_student()
 
 
 
